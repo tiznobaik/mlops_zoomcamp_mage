@@ -1,0 +1,99 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_loaders/ingestt.py
+  downstream_blocks:
+  - cleaning
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Ingestt
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: ingestt
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/cleaning.py
+  downstream_blocks:
+  - feature_eng___training
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Cleaning
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - ingestt
+  uuid: cleaning
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/feature_eng___training.py
+  downstream_blocks:
+  - build_and_model__registry_
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Feature_eng & Training
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - cleaning
+  uuid: feature_eng___training
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_exporters/build_and_model__registry_.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: 'Build and Model  Registry '
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - feature_eng___training
+  uuid: build_and_model__registry_
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-07 18:46:23.568824+00:00'
+data_integration: null
+description: Data prepration description
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Data prepration
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_prepration
+variables_dir: /home/src/mage_data/homework_03
+widgets: []
